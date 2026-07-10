@@ -1,0 +1,53 @@
+# Local data and secrets
+data/
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SQLite temp files
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Never commit SQLite databases anywhere in the repo
+*.db
+
+# Machine-specific values (real VM identity etc. — placeholders live in RUNBOOK)
+docs/local-notes.md
+
+# --- Private, local-only docs (the soul) â€” never committed in the public repo ---
+config/personal_brand.md
+docs/brand/
+docs/GLOSSARY.md
+docs/ROADMAP.md
+docs/plans/
+docs/local-notes.md

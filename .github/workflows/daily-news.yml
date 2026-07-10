@@ -1,0 +1,29 @@
+name: Daily news digest
+
+on:
+  schedule:
+    # 12:00 UTC ≈ 7am US Eastern (standard time)
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  news-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Run news scraper
+        run: python -m agents.news_scraper.run
+
+      - name: Sync to Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_NEWS_DATABASE_ID: ${{ secrets.NOTION_NEWS_DATABASE_ID }}
+        run: python -m agents.sync_agent.run

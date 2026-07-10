@@ -1,0 +1,123 @@
+# Trusted RSS sources for Phase 0 news scraper.
+# tier: official | journalism | unofficial | workaround
+
+feeds:
+  - name: openai-news
+    url: https://openai.com/news/rss.xml
+    category: ai_tech
+    tier: official
+    enabled: true
+
+  - name: google-ai
+    url: https://blog.google/technology/ai/rss/
+    category: ai_tech
+    tier: official
+    enabled: true
+
+  - name: huggingface-blog
+    url: https://huggingface.co/blog/feed.xml
+    category: ai_tech
+    tier: official
+    enabled: true
+
+  - name: techcrunch-ai
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    category: ai_tech
+    tier: journalism
+    enabled: true
+
+  - name: ars-technica-tech
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    category: ai_tech
+    tier: journalism
+    enabled: true
+
+  - name: mit-tech-review-ai
+    url: https://www.technologyreview.com/topic/artificial-intelligence/feed/
+    category: ai_tech
+    tier: journalism
+    enabled: true
+
+  - name: anthropic-news-unofficial
+    url: https://raw.githubusercontent.com/taobojlen/anthropic-rss-feed/main/anthropic_news_rss.xml
+    category: ai_tech
+    tier: unofficial
+    enabled: true
+
+  - name: cursor-releases
+    url: https://github.com/getcursor/cursor/releases.atom
+    category: ai_tech
+    tier: official
+    enabled: false
+
+  - name: cnbc-top
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114
+    category: macro
+    tier: journalism
+    enabled: true
+
+  - name: marketwatch-top
+    url: https://feeds.marketwatch.com/marketwatch/topstories/
+    category: macro
+    tier: journalism
+    enabled: true
+
+  - name: reuters-via-google-news
+    url: "https://news.google.com/rss/search?q=site:reuters.com+when:7d&hl=en-US&gl=US&ceid=US:en"
+    category: macro
+    tier: workaround
+    enabled: true
+
+filters:
+  macro:
+    allow:
+      - fed
+      - inflation
+      - rates
+      - gdp
+      - earnings
+      - market
+      - treasury
+      - recession
+      - stock
+      - economy
+      - tariff
+      - trade
+    block:
+      - celebrity
+      - sports
+      - obituary
+      - recipe
+
+  ai_tech:
+    allow:
+      - ai
+      - llm
+      - openai
+      - anthropic
+      - gemini
+      - claude
+      - skills
+      - mcp
+      - model
+      - agent
+      - machine learning
+      - gpu
+      - neural
+      - google
+      - microsoft
+      - cursor
+      - coding
+      - developer
+    block:
+      - gaming
+      - nft
+      - crypto scam
+
+settings:
+  min_relevance_score: 0.35
+  max_items_per_feed: 20
+  user_agent: ContentCreation-OS-NewsBot/0.1 (personal RSS reader)
+  # Only keep articles published on the scraper run date (in digest_timezone)
+  published_on_run_date_only: false
+  digest_timezone: America/New_York

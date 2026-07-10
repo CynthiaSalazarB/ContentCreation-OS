@@ -1,0 +1,17 @@
+# LLM routing for ContentCreation-OS agents (Phase 2+)
+# Swap models here without changing agent code.
+
+default_provider: gemini
+
+providers:
+  gemini:
+    api_key_env: GOOGLE_API_KEY
+    fallback_api_key_env: GEMINI_API_KEY
+    default_model: gemini-2.5-flash
+
+tasks:
+  script_angles:
+    provider: gemini
+    model: gemini-2.5-flash
+    max_output_tokens: 2048
+    temperature: 0.7

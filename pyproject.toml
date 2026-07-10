@@ -1,0 +1,29 @@
+[project]
+name = "contentcreation-os"
+version = "0.1.0"
+description = "Brand Co-Pilot & Second Brain — local modular news and content pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "feedparser>=6.0.11",
+    "notion-client>=2.2.1",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "tzdata>=2024.1",
+    "google-genai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "agents*", "pipelines*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
