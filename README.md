@@ -1,12 +1,16 @@
 # ContentCreation-OS
 
-**Brand Co-Pilot & Second Brain** — a local-first, modular, human-in-the-loop Python system that curates the day's news, captures raw ideas from anywhere, and turns the right ones into on-brand content angles. **AI curates — the human decides.**
+**Brand Co-Pilot & Second Brain**. A local-first, modular, human-in-the-loop Python system that captures raw ideas from anywhere, turns the right ones into on-brand content angles, and keeps a filtered feed of the day's news beside them. **AI curates,  the human decides.**
 
-Every morning the news is waiting in Notion (PC off, a GitHub Action did it). Any thought — typed on the PC or sent to a Telegram bot from the phone — becomes a captured idea, gets scored against a personal brand definition, and shows up in a Notion Idea Bank with 2–3 suggested script angles and an advisory brand-fit %. The human Status field is the only gate: the AI never approves, publishes, or decides.
+Any thought, typed on the PC or sent to a Telegram bot from the phone, becomes a captured idea, gets scored against a personal brand definition, and shows up in a Notion Idea Bank with 2–3 suggested script angles and an advisory brand-fit %. The human Status field is the only gate: the AI never approves, publishes, or decides. Alongside it, a scheduled GitHub Action keeps a filtered news feed fresh in Notion every morning, with the PC off.
 
-<!-- demo: GIF of Telegram capture → angles → Notion Idea Bank (coming) -->
+![Notion Idea Bank: captured ideas with AI-generated script angles, an advisory brand-fit %, and the lane each idea belongs to](docs/assets/notion-idea-bank.png)
+
+> *Real output. Ideas captured from the CLI or a Telegram bot come back scored against a personal brand definition, with suggested angles and a lane. The advisory brand-fit % never blocks anything,  the human* `Status` *field is the only gate.*
 
 ---
+
+
 
 ## How it works
 
@@ -47,6 +51,8 @@ flowchart LR
   SY <-->|"push angles / pull decisions"| IB
 ```
 
+
+
 1. **Awareness** — `news_scraper` pulls RSS feeds, dedupes by URL, filters noise with keyword rules (no LLM needed), and writes a daily digest. A scheduled GitHub Action syncs it to a Notion News Dashboard that keeps a rolling 30-day window.
 2. **Capture** — ideas enter through three doors: CLI one-shot, CLI quick-capture, or a Telegram bot running on a GCP VM (so the phone works with the PC off). Everything lands in one canonical local SQLite DB.
 3. **Angles** — `script_angles_agent` reads `config/personal_brand.md` and asks Gemini for 2–3 short-form content angles per idea, plus an advisory brand-fit score.
@@ -57,6 +63,8 @@ The same engine runs in three places: **your machine** (the canonical store), a 
 
 ---
 
+
+
 ## Design principles
 
 - **Human-in-the-loop** — AI scores, tags, and suggests; it never auto-publishes or auto-approves. Brand fit % is advisory; the human Status in Notion is the only gate.
@@ -66,6 +74,8 @@ The same engine runs in three places: **your machine** (the canonical store), a 
 - **Bring your own brand** — the engine is generic; the voice comes from `config/personal_brand.md` (gitignored). Copy the committed template and the same system runs on *your* brand.
 
 ---
+
+
 
 ## Quick start
 
@@ -104,6 +114,8 @@ Day-to-day operation (which command, when, and what runs automatically): **[docs
 
 ---
 
+
+
 ## Project structure
 
 ```
@@ -133,38 +145,50 @@ Scrapers (deterministic, no LLM) vs. agents (LLM/decision logic) is a deliberate
 
 ---
 
+
+
 ## Build phases
 
-| Phase | Focus | Status |
-|-------|-------|--------|
-| 0 | News scraper (RSS, dedup, keyword filter) | ✅ |
-| 1 | Notion News Dashboard + daily GitHub Action | ✅ |
-| 2a | Brand config + Gemini script angles + CLI capture | ✅ |
-| 2b | Notion Idea Bank + advisory brand fit % | ✅ |
-| 2c | Telegram capture from phone (bot on GCP VM) | ✅ |
-| 3 | Knowledge & memory layer — notes ingestion, market/trend research, connection-finder | 🔄 in design |
+
+| Phase | Focus                                                                                | Status       |
+| ----- | ------------------------------------------------------------------------------------ | ------------ |
+| 0     | News scraper (RSS, dedup, keyword filter)                                            | ✅            |
+| 1     | Notion News Dashboard + daily GitHub Action                                          | ✅            |
+| 2a    | Brand config + Gemini script angles + CLI capture                                    | ✅            |
+| 2b    | Notion Idea Bank + advisory brand fit %                                              | ✅            |
+| 2c    | Telegram capture from phone (bot on GCP VM)                                          | ✅            |
+| 3     | Knowledge & memory layer — notes ingestion, market/trend research, connection-finder | 🔄 in design |
+
 
 > Phases 0–2c are built and run daily. Phase 3+ items are candidates under evaluation, not commitments — current thinking in [docs/WHATS-NEXT.md](docs/WHATS-NEXT.md).
 
 ---
 
+
+
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [docs/VISION.md](docs/VISION.md) | What & why — principles, non-goals |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | How — full system design, schemas, module contract |
-| [docs/RUNBOOK.md](docs/RUNBOOK.md) | **Which command, when** — day-to-day operation |
-| [docs/WHATS-NEXT.md](docs/WHATS-NEXT.md) | Where it's going next |
-| [CLAUDE.md](CLAUDE.md) | AI-assisted development guide (Claude Code + per-module skills in `.claude/skills/`) |
+
+| Document                                     | Description                                                                          |
+| -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [docs/VISION.md](docs/VISION.md)             | What & why — principles, non-goals                                                   |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | How — full system design, schemas, module contract                                   |
+| [docs/RUNBOOK.md](docs/RUNBOOK.md)           | **Which command, when** — day-to-day operation                                       |
+| [docs/WHATS-NEXT.md](docs/WHATS-NEXT.md)     | Where it's going next                                                                |
+| [CLAUDE.md](CLAUDE.md)                       | AI-assisted development guide (Claude Code + per-module skills in `.claude/skills/`) |
+
 
 ---
+
+
 
 ## Tech stack
 
 Python 3.11+ · Pydantic v2 · feedparser · SQLite · YAML config · Gemini (`google-genai`) · Notion API · Telegram Bot API · GitHub Actions · GCP VM (capture bot) · Claude Code Skills · Notion MCP (development only)
 
 ---
+
+
 
 ## License
 
