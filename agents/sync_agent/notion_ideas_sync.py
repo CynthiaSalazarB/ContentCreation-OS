@@ -57,12 +57,26 @@ def _brand_fit_percent(idea: Idea) -> float | None:
     return round(idea.brand_fit.fit * 100, 1)
 
 
+def _angle_tags(angle) -> str:
+    """Advisory suggestion tags, e.g. `carousel · reach · promise/negation`.
+
+    Every field is optional, so older angles render exactly as before.
+    """
+    tags = [t for t in (angle.delivery_format, angle.stage) if t]
+    if angle.hook_family:
+        family = angle.hook_family
+        tags.append(f"{family}/{angle.hook_mechanism}" if angle.hook_mechanism else family)
+    return f"  ({' · '.join(tags)})" if tags else ""
+
+
 def _angles_summary(idea: Idea) -> str:
     if not idea.script_angles:
         return ""
     parts: list[str] = []
     for index, angle in enumerate(idea.script_angles, start=1):
-        parts.append(f"{index}. [{angle.framework}] {angle.hook}\n   {angle.angle}")
+        parts.append(
+            f"{index}. [{angle.framework}]{_angle_tags(angle)} {angle.hook}\n   {angle.angle}"
+        )
     return "\n".join(parts)[:2000]
 
 

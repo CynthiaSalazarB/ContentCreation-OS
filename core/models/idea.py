@@ -19,6 +19,9 @@ IdeaProcessingStatus = Literal[
 BrandLane = Literal["build", "create", "reflect"]
 HumanDecision = Literal["approved", "rejected", "edit_requested", "pending"]
 ContentIntent = Literal["educational", "opinion", "tutorial", "story"]
+DeliveryFormat = Literal["talking head", "silent film", "carousel", "voiceover"]
+HookFamily = Literal["promise", "moment"]
+ContentStage = Literal["reach", "trust", "proof", "resonance"]
 
 
 class IdeaContent(BaseModel):
@@ -44,12 +47,19 @@ class BrandFit(BaseModel):
 
 
 class ScriptAngle(BaseModel):
+    """One suggested angle. All suggestion fields are advisory — the human picks."""
+
     framework: str
     hook: str
     angle: str
     tone: str | None = None
     estimated_length: str | None = None
     confidence: float | None = Field(default=None, ge=0.0, le=1.0)
+    # Added 2026-08-13. Optional so pre-existing ideas still validate — no backfill needed.
+    delivery_format: DeliveryFormat | None = None
+    hook_family: HookFamily | None = None
+    hook_mechanism: str | None = None
+    stage: ContentStage | None = None
 
 
 class IdeaLinks(BaseModel):
