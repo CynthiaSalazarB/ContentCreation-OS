@@ -54,3 +54,9 @@ docs/GLOSSARY.md
 docs/ROADMAP.md
 docs/plans/
 docs/local-notes.md
+
+# Reference/source images belong in the private brain repo, not in a public one.
+# docs/assets/ holds only images the README and docs actually embed.
+docs/assets/WhatsApp*
+docs/assets/IMG_*
+docs/assets/Screenshot*
