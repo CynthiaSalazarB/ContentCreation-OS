@@ -73,7 +73,7 @@ def pull_remote_ideas(
     if not source_db.is_file():
         raise FileNotFoundError(
             f"Remote DB copy not found: {source_db}. Fetch it first, e.g. "
-            "gcloud compute scp <vm>:~/ContentCreation-OS/data/cynthia.db data/remote/cynthia-vm.db"
+            "gcloud compute scp <vm>:~/idea-angles-pipeline/data/cynthia.db data/remote/cynthia-vm.db"
         )
     store = SqliteStore(db_path)
     return store.merge_ideas_from(SqliteStore(source_db), dry_run=dry_run)
@@ -102,7 +102,7 @@ def run_pull(ctx: RunContext) -> RunResult:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="ContentCreation-OS Idea Bank Notion sync (Phase 2b)")
+    parser = argparse.ArgumentParser(description="Idea Angles Pipeline Idea Bank Notion sync (Phase 2b)")
     sub = parser.add_subparsers(dest="command", required=True)
     push_parser = sub.add_parser("push", help="Push angled ideas to Notion Idea Bank")
     push_parser.add_argument("--dry-run", action="store_true")

@@ -115,7 +115,7 @@ def _parse_date(value: str) -> date:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="ContentCreation-OS news scraper (Phase 0)")
+    parser = argparse.ArgumentParser(description="Idea Angles Pipeline news scraper (Phase 0)")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing files")
     parser.add_argument("--date", type=_parse_date, help="Output date file (YYYY-MM-DD)")
     parser.add_argument("--config", type=Path, help="Path to news_sources.yaml")

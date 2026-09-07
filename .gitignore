@@ -46,6 +46,8 @@ htmlcov/
 docs/local-notes.md
 
 # --- Private, local-only docs (the soul) â€” never committed in the public repo ---
+# The real copies now live in ../../brain/ (a separate private repo).
+# These rules stay as a tripwire in case a file ever reappears here.
 config/personal_brand.md
 docs/brand/
 docs/GLOSSARY.md

@@ -1,4 +1,4 @@
-"""ContentCreation-OS orchestrator — knows execution order only, no business logic.
+"""Idea Angles Pipeline orchestrator — knows execution order only, no business logic.
 
 Every step is a module-level `run(ctx: RunContext) -> RunResult`. Modules hand
 off work through shared storage (daily JSON, SQLite idea statuses), never by
@@ -56,7 +56,7 @@ STEP_REGISTRY: dict[str, Callable[[RunContext], RunResult]] = {
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="ContentCreation-OS orchestrator")
+    parser = argparse.ArgumentParser(description="Idea Angles Pipeline orchestrator")
     parser.add_argument(
         "--steps",
         required=True,

@@ -140,7 +140,7 @@ def render_digest_html(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ContentCreation-OS News — {html.escape(digest_date)}</title>
+  <title>Idea Angles Pipeline News — {html.escape(digest_date)}</title>
   <style>
     :root {{
       --bg: #0f1117;
@@ -250,7 +250,7 @@ def render_digest_html(
 </head>
 <body>
   <header class="page">
-    <h1>ContentCreation-OS News Digest</h1>
+    <h1>Idea Angles Pipeline News Digest</h1>
     <div class="page-meta">{"".join(meta_parts)}</div>
   </header>
   <main>

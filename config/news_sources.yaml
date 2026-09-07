@@ -117,7 +117,7 @@ filters:
 settings:
   min_relevance_score: 0.35
   max_items_per_feed: 20
-  user_agent: ContentCreation-OS-NewsBot/0.1 (personal RSS reader)
+  user_agent: idea-angles-pipeline-NewsBot/0.1 (personal RSS reader)
   # Only keep articles published on the scraper run date (in digest_timezone)
   published_on_run_date_only: false
   digest_timezone: America/New_York

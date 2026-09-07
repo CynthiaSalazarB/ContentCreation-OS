@@ -1,12 +1,12 @@
-# ContentCreation-OS — System Architecture
+# Idea Angles Pipeline — System Architecture
 
-Brand Co-Pilot & Second Brain: a local, modular, AI-assisted productivity and content ecosystem.
+A local, modular, human-in-the-loop pipeline that turns captured ideas into on-brand script angles, with a filtered daily news feed alongside it.
 
 ---
 
 ## Vision
 
-ContentCreation-OS helps a full-stack creative engineer curate news, capture raw ideas, and transform them into on-brand content — without over-engineering or cognitive fatigue.
+Idea Angles Pipeline helps a full-stack creative engineer curate news, capture raw ideas, and transform them into on-brand content — without over-engineering or cognitive fatigue.
 
 **Target audience:** Tech students, creatives learning programming, and people interested in systemic productivity and AI.
 
@@ -317,7 +317,7 @@ python orchestrator.py --steps news,sync --dry-run
 ## Folder Structure
 
 ```
-ContentCreation-OS/
+idea-angles-pipeline/
 ├── README.md
 ├── CLAUDE.md                       # AI session conventions
 ├── orchestrator.py                 # step registry — knows execution order only

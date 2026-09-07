@@ -30,7 +30,7 @@ class NewsSourcesConfig:
     filters: dict[str, FilterRules]
     min_relevance_score: float = 0.3
     max_items_per_feed: int = 20
-    user_agent: str = "ContentCreation-OS-NewsBot/0.1 (personal RSS reader)"
+    user_agent: str = "idea-angles-pipeline-NewsBot/0.1 (personal RSS reader)"
     published_on_run_date_only: bool = False
     digest_timezone: str = "UTC"
 
@@ -64,7 +64,7 @@ def load_config(path: Path | None = None) -> NewsSourcesConfig:
         filters=filters,
         min_relevance_score=float(settings.get("min_relevance_score", 0.3)),
         max_items_per_feed=int(settings.get("max_items_per_feed", 20)),
-        user_agent=str(settings.get("user_agent", "ContentCreation-OS-NewsBot/0.1")),
+        user_agent=str(settings.get("user_agent", "idea-angles-pipeline-NewsBot/0.1")),
         published_on_run_date_only=bool(settings.get("published_on_run_date_only", False)),
         digest_timezone=str(settings.get("digest_timezone", "UTC")),
     )

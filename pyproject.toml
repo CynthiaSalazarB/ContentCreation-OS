@@ -1,7 +1,7 @@
 [project]
-name = "contentcreation-os"
+name = "idea-angles-pipeline"
 version = "0.1.0"
-description = "Brand Co-Pilot & Second Brain — local modular news and content pipeline"
+description = "Capture a raw idea, score it against a personal brand, get on-brand script angles back in Notion"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

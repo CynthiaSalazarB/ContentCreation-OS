@@ -1,4 +1,4 @@
-# ContentCreation-OS sync agent (Phase 1)
+# Idea Angles Pipeline sync agent (Phase 1)
 
 Pushes today's filtered `NewsItem` rows to the Notion **News Dashboard**.
 
@@ -60,7 +60,7 @@ Separate Notion database from the News Dashboard, with these properties (one-tim
 | Property | Type | Options / notes |
 |----------|------|-----------------|
 | Title | title | Working title from angles agent |
-| Idea ID | rich_text | ContentCreation-OS UUID — required for pull sync |
+| Idea ID | rich_text | Idea Angles Pipeline UUID — required for pull sync |
 | Brand fit % | number | 0–100 advisory score (not a gate) |
 | Brand fit note | rich_text | One-line why |
 | Lane | select | Your brand lanes (e.g. `Build`, `Create`, `Reflect`) |
@@ -85,7 +85,7 @@ The VM's SQLite is a **capture inbox, never canonical** — local `data/cynthia.
 
 ```powershell
 # 1. Fetch a copy of the VM's DB
-gcloud compute scp <vm-name>:~/ContentCreation-OS/data/cynthia.db data/remote/cynthia-vm.db
+gcloud compute scp <vm-name>:~/idea-angles-pipeline/data/cynthia.db data/remote/cynthia-vm.db
 
 # 2. Merge it into the local DB (upsert by UUID, newer updated_at wins, idempotent)
 python -m agents.sync_agent.run ideas pull-remote --from data/remote/cynthia-vm.db

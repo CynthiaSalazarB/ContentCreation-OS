@@ -1,6 +1,6 @@
 ---
 name: capture-agent
-description: Capture and process ideas in ContentCreation-OS. Use for CLI capture, process pipeline (angles + Notion Idea Bank), or listing recent ideas.
+description: Capture and process ideas in Idea Angles Pipeline. Use for CLI capture, process pipeline (angles + Notion Idea Bank), or listing recent ideas.
 ---
 
 # Capture Agent (Phase 2)

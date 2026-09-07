@@ -102,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
 
         return ideas_main(argv[1:])
 
-    parser = argparse.ArgumentParser(description="ContentCreation-OS Notion sync (Phase 1)")
+    parser = argparse.ArgumentParser(description="Idea Angles Pipeline Notion sync (Phase 1)")
     parser.add_argument("--date", type=date.fromisoformat, help="Daily JSON date (YYYY-MM-DD)")
     parser.add_argument(
         "--retention-days",

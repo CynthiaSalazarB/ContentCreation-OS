@@ -1,1 +1,1 @@
-"""Shared library for ContentCreation-OS modules."""
+"""Shared library for Idea Angles Pipeline modules."""

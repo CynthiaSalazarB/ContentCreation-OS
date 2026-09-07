@@ -1,6 +1,6 @@
-# CLAUDE.md — ContentCreation-OS
+# CLAUDE.md — Idea Angles Pipeline
 
-Brand Co-Pilot & Second Brain: a local-first, modular, human-in-the-loop Python automation stack.
+A local-first, modular, human-in-the-loop Python pipeline: a raw idea goes in, on-brand script angles come back in Notion.
 
 ## System Context & Philosophy
 

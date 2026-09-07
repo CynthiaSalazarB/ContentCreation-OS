@@ -1,6 +1,6 @@
 ---
 name: sync-agent
-description: Run ContentCreation-OS Notion sync for News Dashboard and Idea Bank. Use when pushing news or ideas to Notion, fixing sync errors, or configuring NOTION_API_KEY and database IDs.
+description: Run Idea Angles Pipeline Notion sync for News Dashboard and Idea Bank. Use when pushing news or ideas to Notion, fixing sync errors, or configuring NOTION_API_KEY and database IDs.
 ---
 
 # Sync Agent (Phase 1 + 2b)
@@ -41,7 +41,7 @@ python -m agents.sync_agent.run ideas pull
 python -m agents.sync_agent.run ideas push --dry-run
 
 # Drain GCP Telegram-bot captures into the canonical local DB (one-way, idempotent)
-gcloud compute scp <vm-name>:~/ContentCreation-OS/data/cynthia.db data/remote/cynthia-vm.db
+gcloud compute scp <vm-name>:~/idea-angles-pipeline/data/cynthia.db data/remote/cynthia-vm.db
 python -m agents.sync_agent.run ideas pull-remote --from data/remote/cynthia-vm.db
 ```
 

@@ -16,22 +16,24 @@
 
 
 
-## Next: the knowledge & memory layer (Phase 3 — in design)
+## Next: maintenance, not a new phase
 
-> This phase is still being designed. The items below are the current candidates, not commitments — scope may change, and some pieces may end up as a companion system rather than inside this repo.
+The pipeline covers the job it was scoped to do. Expect small improvements to angle quality, dependency upkeep, and fixes — not new subsystems.
 
-The captured-ideas store was deliberately designed as one canonical local SQLite DB — the substrate for this phase:
-
-- **Notes ingestion** — connect a static knowledge vault (Obsidian: theory, concepts, books) and dynamic notes (Notion: fleeting thoughts from phone/laptop) to the system.
-- **Connection-finder agent** — reads notes + captured ideas and surfaces patterns, repetitions, and links between them ("you've circled this theme four times") as fuel for content. Likely the first real use for vector embeddings in the stack.
-- **Memory** — the orchestrator gets long-term context: what was already made, what resonated, what keeps coming back.
-- **Market/trend research agent** — what's moving in the niche and what admired creators are publishing, as extra fuel for angle quality (the original Phase 3 sketch in [ARCHITECTURE.md](ARCHITECTURE.md)).
+- **Angle quality** — tighten the hook seed so it stays anchored to the raw capture instead of drifting.
+- **News → angles helper** — run a news item through the brand filter, the one Phase 2a item still open.
 
 
 
-## After that (exploring)
+## Phase 3 moved out of this repo
 
-- **Script-writer agent** — turns an approved angle into a platform-specific script in the author's voice, driven by the brand config and voice examples.
+The earlier plan put a knowledge and memory layer here: notes ingestion, a connection-finder across notes and ideas, embeddings, and a script-writer agent. That scope now lives in the surrounding personal system instead. Short version of why:
+
+- **Wrong input.** A connection-finder reads a personal knowledge base, not this pipeline's data. What a system reads decides where it belongs.
+- **No real pain yet.** The corpus is a few thousand lines of markdown that plain text search handles instantly. Embeddings would be infrastructure bought ahead of the need.
+- **The script-writer is cancelled, not deferred.** A script worth filming comes out of an interview with the person whose story it is. See [VISION.md](VISION.md).
+
+Other parts of the workflow ship as their own repos rather than accumulating here, so each piece stays explainable on its own terms.
 
 
 
@@ -40,4 +42,3 @@ The captured-ideas store was deliberately designed as one canonical local SQLite
 - **Human-in-the-loop** — nothing publishes or decides without human approval.
 - **Anti-over-engineering** — complexity is added when a phase actually needs it, not before. 
 - Ideas graduate from a private backlog only when they survive the "worth building, or scope creep?" check.
-

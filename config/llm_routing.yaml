@@ -1,4 +1,4 @@
-# LLM routing for ContentCreation-OS agents (Phase 2+)
+# LLM routing for Idea Angles Pipeline agents (Phase 2+)
 # Swap models here without changing agent code.
 
 default_provider: gemini

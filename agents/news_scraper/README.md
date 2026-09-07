@@ -1,6 +1,6 @@
 # News Scraper
 
-Phase 0 RSS pipeline for ContentCreation-OS.
+Phase 0 RSS pipeline for Idea Angles Pipeline.
 
 ## Run
 ### Activate Python Environment

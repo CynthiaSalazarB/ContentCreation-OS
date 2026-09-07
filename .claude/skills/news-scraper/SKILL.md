@@ -1,6 +1,6 @@
 ---
 name: news-scraper
-description: Runs and extends the ContentCreation-OS RSS news scraper. Use when adding RSS feeds, tuning keyword filters, running the daily digest, or debugging news JSON output.
+description: Runs and extends the Idea Angles Pipeline RSS news scraper. Use when adding RSS feeds, tuning keyword filters, running the daily digest, or debugging news JSON output.
 ---
 
 # News Scraper
@@ -8,7 +8,7 @@ description: Runs and extends the ContentCreation-OS RSS news scraper. Use when 
 ## Run
 
 ```powershell
-cd ContentCreation-OS
+cd idea-angles-pipeline
 python -m agents.news_scraper.run
 python -m agents.news_scraper.run --dry-run
 python -m agents.news_scraper.run -v

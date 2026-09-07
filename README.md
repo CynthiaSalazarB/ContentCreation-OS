@@ -1,6 +1,6 @@
-# ContentCreation-OS
+# Idea Angles Pipeline
 
-**Brand Co-Pilot & Second Brain**. A local-first, modular, human-in-the-loop Python system that captures raw ideas from anywhere, turns the right ones into on-brand content angles, and keeps a filtered feed of the day's news beside them. **AI curates,  the human decides.**
+A local-first, modular, human-in-the-loop Python system. Capture a raw idea from anywhere, get it scored against a personal brand definition, and get 2–3 on-brand script angles back in a Notion Idea Bank. **AI curates, the human decides.**
 
 Any thought, typed on the PC or sent to a Telegram bot from the phone, becomes a captured idea, gets scored against a personal brand definition, and shows up in a Notion Idea Bank with 2–3 suggested script angles and an advisory brand-fit %. The human Status field is the only gate: the AI never approves, publishes, or decides. Alongside it, a scheduled GitHub Action keeps a filtered news feed fresh in Notion every morning, with the PC off.
 
@@ -11,6 +11,12 @@ Any thought, typed on the PC or sent to a Telegram bot from the phone, becomes a
 ---
 
 
+
+> **Scope.** This is one component of my content workflow, not a product. It is the automated
+> half: the part that runs without me. Script writing and hook work happen elsewhere, in
+> conversation, because they need judgment a program cannot supply. You are welcome to read it
+> or fork it, but it is not packaged for general use, and the brand config is intentionally
+> yours to write.
 
 ## How it works
 
@@ -82,8 +88,8 @@ The same engine runs in three places: **your machine** (the canonical store), a 
 Prerequisites: Python 3.11+, a [Notion integration token](https://www.notion.so/my-integrations), a Gemini API key.
 
 ```powershell
-git clone https://github.com/CynthiaSalazarB/ContentCreation-OS.git
-cd ContentCreation-OS
+git clone https://github.com/CynthiaSalazarB/idea-angles-pipeline.git
+cd idea-angles-pipeline
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
@@ -119,7 +125,7 @@ Day-to-day operation (which command, when, and what runs automatically): **[docs
 ## Project structure
 
 ```
-ContentCreation-OS/
+idea-angles-pipeline/
 ├── orchestrator.py              # step registry: news, sync, angles, ideas-push, ideas-pull
 ├── pipelines/                   # cross-module composition (capture → angles → Notion)
 ├── agents/

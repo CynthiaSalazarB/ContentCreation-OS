@@ -8,7 +8,7 @@ from agents.script_angles_agent.run import angles_for_idea
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="ContentCreation-OS script angles agent (Phase 2a/2b)")
+    parser = argparse.ArgumentParser(description="Idea Angles Pipeline script angles agent (Phase 2a/2b)")
     parser.add_argument("idea_id", help="Idea UUID")
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args(argv)

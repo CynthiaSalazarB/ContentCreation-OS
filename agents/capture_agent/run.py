@@ -83,7 +83,7 @@ def _print_pipeline_result(result) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="ContentCreation-OS capture agent — frictionless raw idea inbox (Phase 2a)"
+        description="Idea Angles Pipeline capture agent — frictionless raw idea inbox (Phase 2a)"
     )
     subparsers = parser.add_subparsers(dest="command")
 
