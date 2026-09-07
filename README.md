@@ -88,7 +88,7 @@ The same engine runs in three places: **your machine** (the canonical store), a 
 Prerequisites: Python 3.11+, a [Notion integration token](https://www.notion.so/my-integrations), a Gemini API key.
 
 ```powershell
-git clone https://github.com/CynthiaSalazarB/Idea-angles-pipeline.git
+git clone https://github.com/CynthiaSalazarB/idea-angles-pipeline.git
 cd idea-angles-pipeline
 python -m venv .venv
 .venv\Scripts\Activate.ps1
